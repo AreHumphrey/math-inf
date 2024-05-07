@@ -3,19 +3,19 @@ package com.yarvin.mathinf.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Builder
-@Entity(name = "Questions")
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity(name = "answers")
 @Getter
 @Setter
-public class QuestionEntity {
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class AnswerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private String questionType;
+    @OneToOne
+    private QuestionEntity question;
 
-    @ManyToOne
-    private TestEntity test;
+    private String text;
 }
