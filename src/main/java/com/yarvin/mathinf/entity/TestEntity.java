@@ -20,6 +20,4 @@ public class TestEntity {
 
     @ManyToOne
     private UserEntity user;
-
-
 }

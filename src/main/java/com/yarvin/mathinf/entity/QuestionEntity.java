@@ -14,6 +14,8 @@ public class QuestionEntity {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    private String text;
+
     private String questionType;
 
     @ManyToOne

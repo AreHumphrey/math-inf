@@ -3,22 +3,19 @@ package com.yarvin.mathinf.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.sql.Timestamp;
-
+@Entity(name = "user_answer")
 @Getter
 @Setter
-@Entity(name = "subscribes")
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Builder
-public class SubscribeEntity {
+public class UserAnswerEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private Boolean active;
+    private String text;
 
-    private Timestamp startDate;
-
-    private Timestamp expiresDate;
+    @ManyToOne
+    private QuestionEntity question;
 }
