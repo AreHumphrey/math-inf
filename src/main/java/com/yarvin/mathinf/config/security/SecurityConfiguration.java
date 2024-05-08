@@ -38,14 +38,17 @@ public class SecurityConfiguration {
 
                 .authorizeHttpRequests(request -> request
                         // Можно указать конкретный путь, * - 1 уровень вложенности, ** - любое количество уровней вложенности
-                        .requestMatchers("api/v1/auth/**").permitAll()
+                        .requestMatchers("api/v1/admin/**").hasRole("ROLE_ADMIN").anyRequest().authenticated()
+                        .requestMatchers("api/v1/auth/*").permitAll()
+                        .requestMatchers("api/v1/test/*").hasRole("ROLE_STUDENT").anyRequest().authenticated()
+                        .requestMatchers("api/v1/user/**").hasRole("ROLE_STUDENT").anyRequest().authenticated()
                         .anyRequest().authenticated())
                 .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
                 .authenticationProvider(authenticationProvider())
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
-
+    //TODO: Implement AuthenticationProvider
     private AuthenticationProvider authenticationProvider() {
         return null;
     }
