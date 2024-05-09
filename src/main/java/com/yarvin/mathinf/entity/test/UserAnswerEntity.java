@@ -1,4 +1,4 @@
-package com.yarvin.mathinf.entity;
+package com.yarvin.mathinf.entity.test;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 public class UserAnswerEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String text;

@@ -1,4 +1,4 @@
-package com.yarvin.mathinf.entity;
+package com.yarvin.mathinf.entity.test;
 
 import jakarta.persistence.*;
 import lombok.*;

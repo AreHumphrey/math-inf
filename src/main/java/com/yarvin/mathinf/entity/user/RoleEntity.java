@@ -1,4 +1,4 @@
-package com.yarvin.mathinf.entity;
+package com.yarvin.mathinf.entity.user;
 
 
 import jakarta.persistence.*;
@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 public class RoleEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;

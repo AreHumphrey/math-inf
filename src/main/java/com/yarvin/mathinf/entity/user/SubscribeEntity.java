@@ -1,4 +1,4 @@
-package com.yarvin.mathinf.entity;
+package com.yarvin.mathinf.entity.user;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -13,7 +13,7 @@ import java.sql.Timestamp;
 @Builder
 public class SubscribeEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private Boolean active;
