@@ -1,0 +1,100 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+}
+
+.header-bg {
+    position: relative;
+    height: 150px;
+    background: url('bg_header.png') no-repeat center center;
+    background-size: cover;
+}
+
+.header-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    padding: 0 20px;
+    letter-spacing: 0.2em;
+}
+
+.left-text {
+    text-align: left;
+    margin-bottom: 30px;
+    margin-left: 500px;
+}
+
+.right-text {
+    text-align: right;
+    margin-bottom: -40px;
+    margin-right: 580px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: #fff;
+    height: 45px;
+}
+
+.header-logo h1 {
+    margin: 0;
+}
+
+.header-nav {
+    flex-grow: 1;
+}
+
+.header-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header-nav li {
+    margin: 0 35px;
+    position: relative;
+    font-size: 14px;
+}
+
+.header-nav li:hover {
+    cursor: pointer;
+}
+
+.profile-icon {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+}
+
+.profile-icon svg {
+    font-size: 30px;
+    transition: transform 0.3s ease;
+}
+
+.profile-icon svg:hover {
+    transform: scale(1.1);
+}
+
+.dropdown-container {
+    position: relative;
+}
