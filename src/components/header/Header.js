@@ -1,26 +1,39 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Header.css';
-import Dropdown from './Dropdown';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 const Header = () => {
-    const [showDropdown, setShowDropdown] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(null);
+    const [dropdownDirection, setDropdownDirection] = useState('down');
     const dropdownRef = useRef(null);
 
-    const handleMouseEnter = () => {
-        setShowDropdown(true);
+    const handleMouseEnter = (menu) => {
+        setActiveMenu(menu);
+        if (dropdownRef.current) {
+            const rect = dropdownRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            if (rect.bottom > windowHeight) {
+                setDropdownDirection('up');
+            } else {
+                setDropdownDirection('down');
+            }
+        }
     };
 
     const handleMouseLeave = () => {
-        setShowDropdown(false);
+        setActiveMenu(null);
+        setDropdownDirection('down');
     };
 
-    useEffect(() => {
-        if (dropdownRef.current) {
-            const parentWidth = dropdownRef.current.parentElement.offsetWidth;
-            dropdownRef.current.style.width = `${parentWidth}px`;
-        }
-    }, [showDropdown]);
+    const menus = {
+        Математика: ['5 класс', '6 класс', '7 класс', '8 класс', '9 класс', '10 класс', '11 класс'],
+        Алгебра: ['7 класс', '8 класс', '9 класс', '10 класс', '11 класс'],
+        Геометрия: ['7 класс', '8 класс', '9 класс', '10 класс', '11 класс'],
+        Информатика: ['7 класс', '8 класс', '9 класс', '10 класс', '11 класс'],
+        ОГЭ: ['математика', 'информатика'],
+        ЕГЭ: ['математика (база)', 'математика (профиль)', 'информатика'],
+        ГДЗ: ['математика', 'алгебра', 'геометрия', 'информатика']
+    };
 
     return (
         <>
@@ -34,15 +47,25 @@ const Header = () => {
                 <nav className="header-nav">
                     <ul>
                         <li>Главная</li>
-                        <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="dropdown-container">
-                            Математика
-                        </li>
-                        <li>Алгебра</li>
-                        <li>Геометрия</li>
-                        <li>Информатика</li>
-                        <li>ОГЭ</li>
-                        <li>ЕГЭ</li>
-                        <li>ГДЗ</li>
+                        {Object.keys(menus).map((menu) => (
+                            <li
+                                key={menu}
+                                onMouseEnter={() => handleMouseEnter(menu)}
+                                onMouseLeave={handleMouseLeave}
+                                className="dropdown-container"
+                            >
+                                {menu}
+                                {activeMenu === menu && (
+                                    <div className={`dropdown-menu ${dropdownDirection}`} ref={dropdownRef}>
+                                        {menus[menu].map((item, index) => (
+                                            <div key={index} className="dropdown-item">
+                                                {item}
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </li>
+                        ))}
                     </ul>
                 </nav>
                 <div className="profile-icon">
