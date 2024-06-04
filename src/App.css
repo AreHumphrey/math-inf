@@ -1,6 +1,25 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden; 
+  background: #f5f5f5; 
+}
+
 .App {
   text-align: center;
 }
+
+main {
+  padding: 0; 
+  margin: 0; 
+}
+
+.news-title {
+  margin: 30px 0;
+  font-size: 32px;
+  color: #333;
+}
+
 
 .App-logo {
   height: 40vmin;
