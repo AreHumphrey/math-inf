@@ -5,11 +5,41 @@ const News = () => {
     const [news, setNews] = useState([]);
 
     useEffect(() => {
-        // Замените URL на ваш API endpoint
-        fetch('https://api.example.com/news')
-            .then(response => response.json())
-            .then(data => setNews(data))
-            .catch(error => console.error('Error fetching news:', error));
+        // Симулируем вызов API, используя статические данные
+        const newsData = [
+            {
+                "title": "Новые правила ЕГЭ вступят в 2024 году",
+                "description": "Рособрнадзор планирует организовать пересдачу ЕГЭ с 23 мая: что еще изменится",
+                "url": "https://example.com/news/1"
+            },
+            {
+                "title": "Новые правила ЕГЭ вступят в 2024 году",
+                "description": "Рособрнадзор планирует организовать пересдачу ЕГЭ с 23 мая: что еще изменится",
+                "url": "https://example.com/news/1"
+            },
+            {
+                "title": "Новые правила ЕГЭ вступят в 2024 году",
+                "description": "Рособрнадзор планирует организовать пересдачу ЕГЭ с 23 мая: что еще изменится",
+                "url": "https://example.com/news/1"
+            },
+            {
+                "title": "Новые правила ЕГЭ вступят в 2024 году",
+                "description": "Рособрнадзор планирует организовать пересдачу ЕГЭ с 23 мая: что еще изменится",
+                "url": "https://example.com/news/1"
+            },
+            {
+                "title": "Новые правила ЕГЭ вступят в 2024 году",
+                "description": "Рособрнадзор планирует организовать пересдачу ЕГЭ с 23 мая: что еще изменится",
+                "url": "https://example.com/news/1"
+            },
+            {
+                "title": "Новые правила ЕГЭ вступят в 2024 году",
+                "description": "Рособрнадзор планирует организовать пересдачу ЕГЭ с 23 мая: что еще изменится",
+                "url": "https://example.com/news/1"
+            },
+        ];
+
+        setNews(newsData);
     }, []);
 
     return (
