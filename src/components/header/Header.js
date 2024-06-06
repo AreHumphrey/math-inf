@@ -104,7 +104,7 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className="profile-icon">
-                    <a href="/profile"><AccountCircleIcon/></a>
+                    <a href="/Profile"><AccountCircleIcon/></a>
                 </div>
             </header>
         </>
